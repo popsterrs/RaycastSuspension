@@ -4,8 +4,6 @@ local RunService = game:GetService("RunService")
 local SharedModules = ReplicatedStorage:WaitForChild("Shared")
 local Assets = ReplicatedStorage:WaitForChild("Assets")
 
-local SharedConfig = require(SharedModules.SharedConfig)
-local DebugService = require(SharedModules.DebugService)
 local Maid = require(SharedModules.Maid)
 
 local ProgressBars = {

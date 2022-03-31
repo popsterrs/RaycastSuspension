@@ -4,8 +4,6 @@ local RunService = game:GetService("RunService")
 local SharedModules = ReplicatedStorage:WaitForChild("Shared")
 local Assets = ReplicatedStorage:WaitForChild("Assets")
 
-local SharedConfig = require(SharedModules.SharedConfig)
-local DebugService = require(SharedModules.DebugService)
 local Maid = require(SharedModules.Maid)
 local Gizmos = require(SharedModules.Gizmos)
 
@@ -68,10 +66,12 @@ function Car:update(delta)
                 local stiffnessForce = Stiffness * (SuspensionLength - springLength)
                 local damperForce = Damper * ((PreviousSuspensionLengths[attatchment.Name] - springLength) / delta)
                 local suspensionForce = attatchment.CFrame.UpVector * (stiffnessForce + damperForce)
-                
+                print(suspensionForce)
                 PreviousSuspensionLengths[attatchment.Name] = springLength
 
                 attatchment.BillboardGui.TextLabel.Text = suspensionForce.Y
+               -- attatchment.BillboardGui.TextLabel.Text = springLength
+
 				self.PhysicsRig.Visuals[attatchment.Name].WorldPosition = raycastResult.Position
 				attatchment.VectorForce.Force = suspensionForce
 

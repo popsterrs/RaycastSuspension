@@ -4,9 +4,6 @@ local Players = game:GetService("Players")
 local SharedModules = ReplicatedStorage:WaitForChild("Shared")
 local Assets = ReplicatedStorage:WaitForChild("Assets")
 
-local SharedConfig = require(SharedModules.SharedConfig)
-local DebugService = require(SharedModules.DebugService)
-
 local Player = Players.LocalPlayer
 
 local UI = Player.PlayerGui:WaitForChild("UserInterface")
