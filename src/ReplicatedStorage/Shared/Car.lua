@@ -50,8 +50,8 @@ local PreviousSuspensionLengths = {
 
 local SuspensionMaxLength = 4
 local SuspensionLength = 1.5
-local Stiffness = 3
-local Damper = .4
+local Stiffness = 550
+local Damper = 0.4
 local WheelRadius = 0.5
 
 function Car:update(delta)
@@ -67,7 +67,7 @@ function Car:update(delta)
                 local springLength = math.clamp(rayLength - WheelRadius, 0, SuspensionMaxLength)
                 local stiffnessForce = Stiffness * (SuspensionLength - springLength)
                 local damperForce = Damper * ((PreviousSuspensionLengths[attatchment.Name] - springLength) / delta)
-                local suspensionForce = attatchment.CFrame.UpVector * (stiffnessForce + -damperForce)
+                local suspensionForce = attatchment.CFrame.UpVector * (stiffnessForce + damperForce)
                 
                 PreviousSuspensionLengths[attatchment.Name] = springLength
 
