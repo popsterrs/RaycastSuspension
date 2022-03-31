@@ -1,0 +1,4 @@
+return {
+    ["MaxPlayers"] = 8,
+}
+
